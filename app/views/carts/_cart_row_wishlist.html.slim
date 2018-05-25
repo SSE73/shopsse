@@ -1,0 +1,22 @@
+= form_for wishlist, remote: true do |f|
+  table
+    tr
+      td.order-item-nom width="20px" 
+        = @i2 = @i2+1
+      td width="520px" 
+        = wishlist.tovar_razmer.tovar.title
+      td width="520px" 
+        = wishlist.tovar_razmer.razmer.name
+      td text-align="left" width="90px" 
+        = wishlist.tovar_razmer.price
+        | \&amp;nbspруб.
+      td width="35px" 
+      td width="78px" 
+        = wishlist.quantity*wishlist.tovar_razmer.price
+        | \&amp;nbspруб.
+      td
+        = link_to "Delete", wishlist, { data: { confirm: "Are you sure you wish to delete the product '#{wishlist.tovar_razmer.tovar.title} \
+          ' from your cart?" }, method: :delete, remote: true, class: "btn btn-danger" }                                                    \
+      td
+        = link_to 'В корзину', line_items_path(tovar_razmer_id: wishlist.tovar_razmer, wishlists_id_del: wishlist.id, wishlists_del: 1 ), method: :create, class: "basket done", title: "В корзину"
+ 

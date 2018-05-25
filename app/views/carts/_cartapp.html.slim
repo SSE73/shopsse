@@ -1,0 +1,68 @@
+#shop-cart
+  .cart-ico
+  .cart-info
+    #shop-basket style="position:relative;" 
+      #site-cart
+        .cart-inner
+          /! Всего в Корзине товаров
+          - if @cart
+            - if @cart.total_quantity > 0
+              #cart-total.cart-txt
+                = @cart.total_quantity
+                | шт. - #{@cart.total_price} руб.
+                /! 3 шт. - 1056.00руб.
+                span.cart-arrow
+            - else
+              #cart-total.cart-txt Ваша корзина пуста
+          /! Конец Всего в Корзине товаров
+          /! Контент Корзины
+          #cart-content
+            - if @cart
+              - if @cart.total_quantity > 0
+                ul
+                  /! <li id="basket-item-2" class="cart-item-1" style="background: url('/assets/tovar.image_url_s.png') 0 5px no-repeat;"
+                  = render @cart
+                  /! </li
+                .cart-sum
+                  b Итого:
+                  = @cart.total_price
+                  | руб.
+                  /! total_quantity
+                .cart-links
+                  a.basketclear= link_to 'Очистить   |', @cart, method: :delete,data:   confirm: 'Вы уверены?'  
+                  a.basketorder= link_to 'Оформить заказ', new_order_path, method: :get
+              /! <div class="cart-sum"
+              /! </div
+          /! Конец Контент Корзины
+      css:
+        #shop-basket ul  margin:0;padding:0;text-align:left;list-style:none 
+        #shop-basket li  margin:0 0 5px 0;padding:5px 0 5px 97px;border-top:1px dotted #bbb; 
+        #shop-basket li.cart-item-1  border:none;padding-top:0;background-position:0 0!important; 
+        #shop-basket .sb-name  padding-right:15px;font-weight:bold; 
+        #shop-basket .sb-cost  padding-right:15px;color:#666;font-size:11px; 
+        #shop-basket .sb-func  float:right;cursor:pointer;width:16px;height:16px;margin:0; 
+
+        #shop-basket a.remove   background:url('/assets/del.png') no-repeat 3px 0;  
+        #shop-basket a.remove:hover   background:url('/assets/del.png') no-repeat 3px -16px;  
+
+        #shop-basket .empty  text-align:center; 
+        #shop-basket .total  text-align:right; 
+        #site-cart  position:relative; 
+        #cart-content {display:none;position:absolute;width:280px;padding:5px;top:25px;
+            | right:-10px;background:#e7e7e7;border:1px solid #fff;color:#333;border-radius:7px;
+            -moz-border-radius:7px;-webkit-border-radius:7px;-moz-box-shadow:0 2px 3px #999;
+            -webkit-box-shadow:0 2px 3px #999;box-shadow:0 2px 3px #999;z-index:200;}
+        .cart-txt  color:#eee;cursor:pointer; 
+        .cart-sum  text-align:right;padding:5px 0;border:1px solid #ccc;border-left:none;border-right:none; 
+        .cart-links  text-align:center;padding:5px 0 0 0; 
+        .cart-arrow {display:block;position:absolute;right:0;top:2px;width:12px;height:12px;
+            | background:url('/assets/cart-arrow.png') 0 bottom no-repeat;_display:none;}
+      script language="javascript" type="text/javascript" 
+        cdata:
+          | $('#cart-total').bind('click', function() {
+          | $('#cart-content').show(300).css('opacity',0.97);
+          | $('#shop-cart').bind('mouseleave', function() {
+          | $('#cart-content').hide(300);
+          | });
+          | });
+ 

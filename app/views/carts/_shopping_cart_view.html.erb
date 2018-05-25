@@ -1,0 +1,38 @@
+<% if !@shopping.nil? && @shopping.errors.any? %>
+  <div class="alert alert-danger">
+    <ul>
+    <% @shopping.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="list-item">
+  <div class="shop-item">
+    <div class="item-box">
+      <div class="item-thumb">
+        <%= link_to image_tag(shopping.tovar.image_url), :class => "gphoto" %>
+        <span class="img-hov"></span>
+        <span class="img-lupe"></span>
+        <span class="img-mask"></span>
+        <span class="item-ttl"><%= shopping.tovar.title %></span>
+        <!--</a>-->
+
+      </div>
+      <div class="item-meta">
+        <!--<div class="item-prc"><span class="top_view-good-14-price"><%= shopping.tovar.price %> руб.</span></div>-->
+        <div class="item-prc"><span><%= shopping.tovar.price %> руб.</span></div>
+        <div class="item-btn">
+
+          <% $pathtovar = request.original_url %>
+
+          <%= link_to "", shopping.tovar, :class=>"more-lnk",:title => "Подробнее"  %>
+          <%#= link_to '', line_items_path(tovar_id: tovar),:method => :create, :class=>"basket done",:title => "В корзину"  %>
+        </div>
+        <div class="clr"></div>
+      </div>
+    </div>
+  </div>
+</div>
+

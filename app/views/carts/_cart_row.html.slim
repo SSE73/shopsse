@@ -1,0 +1,23 @@
+= form_for line_item, remote: true do |f|
+  table
+    tr
+      td.order-item-nom width="20px" 
+        = @i2 = @i2+1
+      td width="520px" 
+        = line_item.tovar_razmer.tovar.title
+      td width="520px" 
+        = line_item.tovar_razmer.razmer.name
+      td text-align="left" width="90px" 
+        = line_item.tovar_razmer.price
+        | \&amp;nbspруб.
+      td width="35px" 
+        = f.number_field :quantity, value: line_item.quantity.to_i, min: 1, max: 100
+      td width="78px" 
+        = line_item.quantity*line_item.tovar_razmer.price
+        | \&amp;nbspруб.
+      td
+        = link_to "Delete", line_item, { data: { confirm: "Are you sure you wish to delete the product '#{line_item.tovar_razmer.tovar.title} \
+          ' from your cart?" }, method: :delete, remote: true, class: "btn btn-danger" }                                                      \
+      td
+        = link_to 'Отложить', wishlists_path(tovar_razmer_id: line_item.tovar_razmer, line_items_id_del: line_item.id, line_items_del: 1 ), method: :create, class: "basket done", title: "В корзину"
+ 
