@@ -7,11 +7,15 @@ require 'capistrano/rbenv'
 require 'capistrano/bundler'
 require 'capistrano/rails'
 
-require 'capistrano/nginx'
+require 'capistrano/scm/git'
+install_plugin Capistrano::SCM::Git
+
 require 'capistrano/puma'
-require 'capistrano/puma/nginx'
-require 'capistrano/rails/db'
-require 'capistrano/rails/console'
+install_plugin Capistrano::Puma
+install_plugin Capistrano::Puma::Nginx
+install_plugin Capistrano::Puma::Jungle
+
+require 'capistrano/nginx'
 require 'capistrano/upload-config'
 require 'sshkit/sudo'
 

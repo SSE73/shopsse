@@ -58,10 +58,19 @@ group :development do
   gem 'capistrano-rbenv', require: false
 
   gem 'capistrano3-puma', require: false
-  gem 'capistrano-rails-db', require: false
-  gem 'capistrano-rails-console', require: false
   gem 'capistrano-upload-config', require: false
   gem 'sshkit-sudo'
+  # gem 'capistrano-rails-db', require: false
+  # gem 'capistrano-rails-console', require: false
+
+
+  # gem 'capistrano', '~> 3.8', '>= 3.8.1'
+  # gem 'capistrano-rvm', '~> 0.1.2'
+  # gem 'capistrano-rails', '~> 1.2', '>= 1.2.3'
+  # gem 'capistrano3-puma', git: 'https://github.com/seuros/capistrano-puma.git', ref: '00708fa'
+  # gem 'capistrano-nginx', '~> 1.0'
+  # gem 'capistrano-upload-config', '~> 0.7.0'
+  # gem 'sshkit-sudo', '~> 0.1.0'
 
 end
 
