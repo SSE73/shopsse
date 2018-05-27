@@ -59,7 +59,7 @@ namespace :deploy do
   before 'check:linked_files', 'config:push'
   before 'check:linked_files', 'puma:config'
   before 'check:linked_files', 'puma:nginx_config'
-  before 'deploy:migrate', 'deploy:db:create'
+  before 'deploy:db:migrate', 'deploy:db:create'
 
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
