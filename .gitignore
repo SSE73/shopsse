@@ -28,6 +28,7 @@
 config/database.yml
 .idea
 
-Capfile
-config/deploy.rb
-config/deploy/
+#Закрыл непонятки
+#Capfile
+#config/deploy.rb
+#config/deploy/

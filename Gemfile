@@ -57,6 +57,12 @@ group :development do
   gem 'capistrano-rails', require: false
   gem 'capistrano-rbenv', require: false
 
+  gem 'capistrano3-puma', require: false
+  gem 'capistrano-rails-db', require: false
+  gem 'capistrano-rails-console', require: false
+  gem 'capistrano-upload-config', require: false
+  gem 'sshkit-sudo'
+
 end
 
 group :test do
