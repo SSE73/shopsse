@@ -3,21 +3,29 @@ require 'capistrano/setup'
 
 # Include default deployment tasks
 require 'capistrano/deploy'
+
+require "capistrano/scm/git"
+install_plugin Capistrano::SCM::Git
+
 require 'capistrano/rbenv'
 require 'capistrano/bundler'
 require 'capistrano/rails'
 
-require 'capistrano/scm/git'
-install_plugin Capistrano::SCM::Git
+# require 'capistrano/scm/git'
+# install_plugin Capistrano::SCM::Git
 
 require 'capistrano/puma'
-install_plugin Capistrano::Puma
-install_plugin Capistrano::Puma::Nginx
-install_plugin Capistrano::Puma::Jungle
+install_plugin Capistrano::Puma   # Задачи по умолчанию puma
 
-require 'capistrano/nginx'
-require 'capistrano/upload-config'
-require 'sshkit/sudo'
+require 'capistrano/puma/nginx'
+
+# install_plugin Capistrano::Puma
+# install_plugin Capistrano::Puma::Nginx
+# install_plugin Capistrano::Puma::Jungle
+
+# require 'capistrano/nginx'
+# require 'capistrano/upload-config'
+# require 'sshkit/sudo'
 
 set :rbenv_type, :user
 set :rbenv_ruby, '2.5.1'

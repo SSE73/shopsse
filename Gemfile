@@ -59,7 +59,8 @@ group :development do
 
   gem 'capistrano3-puma', require: false
   gem 'capistrano-upload-config', require: false
-  gem 'sshkit-sudo'
+
+  # gem 'sshkit-sudo'
   # gem 'capistrano-rails-db', require: false
   # gem 'capistrano-rails-console', require: false
 
