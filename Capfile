@@ -18,6 +18,7 @@ require 'capistrano/puma'
 install_plugin Capistrano::Puma   # Задачи по умолчанию puma
 
 require 'capistrano/puma/nginx'
+install_plugin Capistrano::Puma::Nginx
 
 # install_plugin Capistrano::Puma
 # install_plugin Capistrano::Puma::Nginx
