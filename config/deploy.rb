@@ -33,6 +33,11 @@ set :linked_files, fetch(:linked_files, []).push('config/database.yml', '.env', 
 
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
 
+set :nginx_config_name,'shopsse'
+
+set :nginx_server_name, '94.250.252.167'
+
+set :puma_workers, 1
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
